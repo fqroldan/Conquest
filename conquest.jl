@@ -65,8 +65,8 @@ function ConquestEconomy(;
 	θ = 1.0,
 	g = 0.05,
 	λ = 0.5,  # λ is the weight on past observations for simple adaptive scheme
-	σe = 0.05,
-	σc = 0.05,
+	σe = 0.5,
+	σc = 0.5,
 	Ustar = 5.0,
 	classic = true,
 	private_expectations = "rational",
@@ -158,8 +158,8 @@ function make_LQ(plm::PLM, δ, σc, σe)
 	
 	# Shocks: unemployment is affected directly by the cost-push shock and indirectly by the inflation control shock (κ-to-1), inflation affected directly by the control shock
 	C = zeros(k,2)
-	C[1,:] = [σe κ*σc]
-	C[plm.Mu+1, 2] = σc
+	C[1,:] = [sqrt(σe) κ*sqrt(σc)]
+	C[plm.Mu+1, 2] = sqrt(σc)
 
 	# Set up objective function
 	# r = x'Rx + u'Qu + 2 u'Nx
