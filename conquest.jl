@@ -119,13 +119,13 @@ function set_exp!(ce::ConquestEconomy, s::String=""; Mu=1, My=1, Mu_p=2, My_p=2)
 end
 
 function set_exp!(ce::ConquestEconomy, n::Int64=0; Mu=1, My=1, Mu_p=2, My_p=2)
-		if n == 0
-				set_exp!(ce, "", Mu=Mu, My=My, Mu_p=Mu_p, My_p=My_p)
-		else
-		sv = ["rational"; "adaptive"; "RLS"]
-		set_exp!(ce, sv[n], Mu=Mu, My=My, Mu_p=Mu_p, My_p=My_p)
-		end
-		nothing
+	if n == 0
+		set_exp!(ce, "", Mu=Mu, My=My, Mu_p=Mu_p, My_p=My_p)
+	else
+	sv = ["rational"; "adaptive"; "RLS"]
+	set_exp!(ce, sv[n], Mu=Mu, My=My, Mu_p=Mu_p, My_p=My_p)
+	end
+	nothing
 end
 
 function make_LQ(plm::PLM, δ, σc, σe)
