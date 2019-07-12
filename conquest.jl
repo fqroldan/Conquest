@@ -379,7 +379,7 @@ function simul_reest(ce::ConquestEconomy, T=50; OLS::Bool=false)
 		new_γ = update_PC_RLS!(plm_g, alm, Ut, yt, Xt)
 		κvec = [κvec; plm_g.κ]
 		svec = [svec; sum_coeff(plm_g)]
-		γvec = [γvec; plm_g.γ']
+		γvec = [γvec; plm_g.γ'] 
 
 		Uv[jj] = Ut
 		πv[jj] = yt
